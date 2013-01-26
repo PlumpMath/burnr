@@ -47,6 +47,12 @@ define(['require'], function(require) {
     return html + '</div></li>';
   }
 
+  Expenses.prototype.total = function() {
+    return this.expenseList.reduce(function(sum, item) {
+      return sum + +item.amount;
+    }, 0);
+  }
+
   return Expenses;
 
 });
