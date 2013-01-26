@@ -8,8 +8,4 @@ require(['creator', 'expenses'], function(Creator, Expenses) {
     expenses.add(expenseDetails);
   });
 
-
-
-
-
 });
