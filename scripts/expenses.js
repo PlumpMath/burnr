@@ -32,7 +32,8 @@ define(['require'], function(require) {
       , listContent = ''
       , _this = this;
 
-    listContent = this.expenseList.reduce(function(acc, item) {
+    // sort first
+    listContent = this.expenseList.sort(this.sort).reduce(function(acc, item) {
       return acc + _this.renderItem(item);
     }, listContent);
 
@@ -45,6 +46,10 @@ define(['require'], function(require) {
     html += '<div class="meta"><span class="label">' + item.label + '</span>';
     html += '<span class="day">' + item.day + '</span></div>';
     return html + '</div></li>';
+  }
+
+  Expenses.prototype.sort = function(a, b) {
+    return +a.day - +b.day;
   }
 
   Expenses.prototype.total = function() {
